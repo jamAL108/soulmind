@@ -8,10 +8,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faHeart as faHeartSupported } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faPaperPlane as faShareNodes } from '@fortawesome/free-regular-svg-icons';
 import { FaWhatsapp, FaInstagram, FaTwitter, FaCopy } from "react-icons/fa";
+import { MdOutlineSort } from "react-icons/md";
 
 const Community = () => {
     const [supportedPostIds, setSupportedPostIds] = useState([]);
-
+    const [isSortPopupOpen, setisSortPopupOpen] = useState(false)
     const router = useRouter()
 
     const [theme , settheme] = useState('light')
@@ -47,6 +48,8 @@ const Community = () => {
         setShowForm(true);
     };
 
+    const [sortType, setSortType] = useState(1);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let x = JSON.stringify({ name, story });
@@ -61,7 +64,6 @@ const Community = () => {
             body: x,
         }).then((response) => {
             response.json()
-            // console.log(response)
             if (response.status === 200) {
                 setName("")
                 setStory("")
@@ -73,8 +75,6 @@ const Community = () => {
                 setSubErr(true)
             }
         }).then((data) => {
-            console.log(data);
-            // do something with the response data
 
 
         }).catch((error) => {
@@ -94,7 +94,6 @@ const Community = () => {
 
         if (supportedPostIds.includes(postId)) {
             // If the post is already supported, call the endpoint to un-support it
-            console.log("Un-supporting post", postId);
 
             fetch(`https://server-innercalm.vercel.app/api/notSupportPost?id=${postId}`, {
                 method: 'PUT',
@@ -121,7 +120,6 @@ const Community = () => {
                 });
         } else {
             // If the post is not supported, call the endpoint to support it
-            console.log("Supporting post", postId);
 
             fetch(`https://server-innercalm.vercel.app/api/supportPost?id=${postId}`, {
                 method: 'PUT',
@@ -164,7 +162,7 @@ const Community = () => {
 
     const [allposts, setAllPosts] = useState([])
 
-    const FetchPosts = async () => {
+    const FetchPosts = async (rev=false) => {
         try {
             const resFromBack = await fetch('https://server-innercalm.vercel.app/api/allPosts', {
                 method: "GET",
@@ -175,8 +173,11 @@ const Community = () => {
             })
 
             const data = await resFromBack.json()
-            setAllPosts(data)
-            // console.log(data)
+            setAllPosts(()=>{
+                if(rev)
+                    return data.reverse();
+                return data;
+            })
 
 
             if (resFromBack.status !== 200 || !data) {
@@ -261,9 +262,52 @@ const Community = () => {
             <div className="CMT">
                 <div className={theme + " " + cmtpg}>
                     <header>We believe that by sharing our experiences, we can help others feel less alone and inspire them to seek the help they need. Join us in creating a supportive and inclusive space where everyone's voice is heard.</header>
-                    <h1 className={theme + " head_st"}>
+                    <h1 className={theme + " head_st"} style={{position : "relative"}}>
                         Stories of People
+                        <div className={theme +" sortBydropDownBtn"}>
+                            <div style={{display :"flex", justifyContent : "",fontSize : "22px"}}>
+                                <button onClick={()=> setisSortPopupOpen(prev=>!prev)}><MdOutlineSort /></button> 
+                            </div>
+                        </div>
+                        {
+                                isSortPopupOpen && (
+                                    <>
+                                        <div className={theme + " sortbyDropDown"}>
+                                            <p> Sort by : </p>
+                                            <button
+                                                onClick={()=>{
+                                                    FetchPosts();
+                                                    setSortType(1);
+                                                }}
+                                                 style={{display : sortType==1 && "none"}}>
+                                                Newest 
+                                            </button>
+                                            <button
+                                                onClick={()=>{
+                                                    FetchPosts(true);
+                                                    setAllPosts((x)=>{
+                                                        x.reverse();
+                                                        return x;
+                                                    })
+                                                    setSortType(2);
+                                                }}
+                                                style={{display : sortType==2 && "none"}}>
+                                                Oldest 
+                                            </button>
+                                            <button
+                                                onClick={()=>{
+                                                    setSortType(1);
+                                                }}
+                                                style={{display : sortType==3 && "none"}}>
+                                                Supports
+                                            </button>
+                                        </div>
+                                    </>
+                                )
+                            }
                     </h1>
+
+                    
 
                     <div className="allposts">
                         {allposts.map((val) => {

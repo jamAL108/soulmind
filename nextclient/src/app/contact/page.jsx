@@ -53,7 +53,6 @@ const Contact = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 // Reset form inputs after successful submission
                 setName("");
                 setEmail("");
