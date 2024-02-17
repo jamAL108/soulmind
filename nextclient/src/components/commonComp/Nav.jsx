@@ -148,7 +148,7 @@ const Nav = () => {
                 </ul>
 
                 {
-                    location !== "music" ?
+                    location !== "/music" ?
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <div className='profile-user'>

@@ -32,15 +32,23 @@ import {
     faFire,
     faClose,
 } from '@fortawesome/free-solid-svg-icons';
+import { BsThreeDotsVertical } from "react-icons/bs";
 
-// import pic1 from "../components/Image-1.jpg";
-// import pic2 from "../components/Image-2.jpg";
-// import pic3 from "../components/Image-3.jpg";
-// import pic4 from "../components/Image-4.jpg";
-// import pic5 from "../components/Image-5.jpg";
-// import pic6 from "../components/Image-6.gif";
-// import pic7 from "../components/Image-7.gif";
-// import pic8 from "../components/Image-8.gif";
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+    DropdownMenuItem,
+} from "@/components/ui/dropdown-menu"
+
+import { CiStickyNote } from "react-icons/ci";
+
+import Notes from './notes'
 
 const slideStyles = {
     width: "100%",
@@ -102,6 +110,12 @@ const MusicScreen = ({ slides }) => {
     const trafficAudioRef = useRef(null);
     const peopleAudioRef = useRef(null);
     const fireAudioRef = useRef(null);
+
+
+
+    const [notesopen, setnotesopen] = useState(false)
+
+    const [dropdownOpen , setdropdownOpen] = useState(false)
 
     useEffect(() => {
         if (rainAudioRef.current) {
@@ -327,7 +341,10 @@ const MusicScreen = ({ slides }) => {
     return (
         <>
             <MusicPreloader />
-            <div style={{ background: "#101316", height: "100%", width: "100%" }} className="musspage">
+            <div style={{ background: "#101316", height: "100%", width: "100%"   }} className="musspage">
+                {notesopen===true && (
+                     <Notes open={notesopen} setopen={setnotesopen}/>
+                )}
                 <div style={slideStylesWidthBackground} >
                     <div>
                         <audio
@@ -350,7 +367,7 @@ const MusicScreen = ({ slides }) => {
                             showYTembed &&
                             <div className="YTembed">
                                 <div className="YtcloseBtn">
-                                    <FontAwesomeIcon icon={faClose} onClick={()=>{
+                                    <FontAwesomeIcon icon={faClose} onClick={() => {
                                         setShowYTembed(false)
                                     }} />
                                 </div>
@@ -361,17 +378,17 @@ const MusicScreen = ({ slides }) => {
                                         <button onClick={handleYTSearch}>Play&nbsp; <FontAwesomeIcon color="#000" icon={faYoutube} /></button>
                                     </form>
                                 </div>
-                                   {
-                                      videoUrlID && (
+                                {
+                                    videoUrlID && (
                                         <iframe
-                                          src={`https://www.youtube.com/embed/${videoUrlID}?autoplay=1&playlist=${videoUrlID}&loop=1`}
-                                          title="YouTube Video"
-                                          frameBorder="0"
-                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                          allowFullScreen
+                                            src={`https://www.youtube.com/embed/${videoUrlID}?autoplay=1&playlist=${videoUrlID}&loop=1`}
+                                            title="YouTube Video"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
                                         ></iframe>
-                                      )
-                                    }
+                                    )
+                                }
                             </div>
                         }
 
@@ -430,6 +447,28 @@ const MusicScreen = ({ slides }) => {
                                 }}>
                                     <FontAwesomeIcon className="youtubeIcon" icon={faYoutube} />
                                 </button>
+
+                                <DropdownMenu open={dropdownOpen} onOpenChange={setdropdownOpen}>
+                                    <DropdownMenuTrigger asChild>
+                                        <button className="three-dot-icon" onClick={() => {
+                                            setdropdownOpen(true)
+                                            // setShowYTembed(!showYTembed)
+                                        }}>
+                                            <BsThreeDotsVertical />
+                                        </button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="music-drop-content">
+                                        <DropdownMenuItem className='music-items' value="notes" onClick={(e)=>{
+                                            e.preventDefault()
+                                            setdropdownOpen(false)
+                                            setnotesopen(true)
+                                        }}>
+                                            Notes
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem className='music-items' value="db">Deep breathe</DropdownMenuItem>
+                                        <DropdownMenuItem className='music-items' value="pdfv">Pdf Viewer</DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
 
                             </div>
                             <div className="volDiv">
@@ -511,7 +550,7 @@ const Music = () => {
         margin: "0"
     };
 
-    
+
 
     return (
         <>
