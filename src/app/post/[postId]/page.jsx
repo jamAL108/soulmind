@@ -96,7 +96,7 @@ function Post() {
     };
 
     const shareOnWhatsApp = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
         const whatsappMessage = `Check out this post on InnerCalm: ${postLink}`;
 
         const whatsappShareLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
@@ -105,14 +105,14 @@ function Post() {
     };
 
     const shareOnInstagram = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
         const instagramShareLink = `https://www.instagram.com/share?url=${encodeURIComponent(postLink)}`;
 
         window.open(instagramShareLink, '_blank');
     };
 
     const shareOnTwitter = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
         const tweetText = "Check out this post on InnerCalm!";
 
         const twitterShareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(postLink)}`;
@@ -121,7 +121,7 @@ function Post() {
     };
 
     const copyLink = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
 
         const tempInput = document.createElement('input');
         tempInput.value = postLink;
