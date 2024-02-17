@@ -12,9 +12,9 @@ const Docs = () => {
     loginWithGoogle();
   };
   const { isAuthenticated, userData } = useCheckAuth();
-  if(isAuthenticated===false){
-    console.log("MEOW")
-    // router.push('/community')
+  if(isAuthenticated===true){
+    // console.log("MEOW")
+    router.push('/community')
   }else {
     return (
         <ModalComponent
