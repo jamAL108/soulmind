@@ -1,0 +1,33 @@
+.preloader-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px) brightness(50%);
+    /* background: #202020db; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .noDisp{
+    display: none;
+  }
+  .preloader-popup h2 {
+    color: white;
+    opacity: 1;
+    text-align: center;
+  }
+  
+  .preloader-popup.show {
+    opacity: 1;
+  }
+  
+  .preloader-popup.hide {
+    opacity: 0;
+  }
+  

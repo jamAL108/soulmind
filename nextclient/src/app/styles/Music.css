@@ -1,0 +1,299 @@
+.volSlider {
+    z-index: 99999;
+    margin-left: 10px;
+}
+
+.volDiv {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    /* max-width: 300px; */
+    margin: 10px 0px;
+    transition: all 0.2s ease;
+    filter: drop-shadow(#000 2px 2px 3px);
+}
+
+.musicButtons button {
+    display: inline-flex;
+    align-items: center;
+
+}
+
+.pageturnbtn {
+    text-shadow: rgb(0, 0, 0) 2px 2px 5px;
+}
+
+/* .soundButtons{
+    position: absolute;
+    bottom: 70vh;
+    left: -10vw;
+} */
+
+
+@media screen and (max-width :76800px) {
+
+
+    .musicButtons {
+
+
+        display: flex;
+        min-width: 200px;
+        max-width: 300px;
+        justify-content: space-evenly;
+        align-items: center;
+
+        border-radius: 50px;
+        backdrop-filter: blur(10px) brightness(70%);
+        border: 1px solid white;
+        padding: 14px;
+        /* box-shadow: 0px 0px 30px #000; */
+        filter: drop-shadow(#000 0px 0px 10px);
+    }
+
+
+
+
+    .allbuttonsmspg {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .musicButtons button svg {
+        font-size: 20px;
+
+    }
+
+}
+
+.volSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, #ffffff00, #ffffff);
+    outline: none;
+    border-radius: 5px;
+    /* opacity: 0.7; */
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.volSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.youtubeIconBTN {
+    background-color: #00000000;
+    border: none;
+    padding-left: 10px;
+}
+
+.youtubeIcon {
+    color: red;
+    font-size: 30px;
+}
+
+.YTembed {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px) brightness(70%);
+    border-radius: 10px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    padding-top: 8px;
+    max-width: 80vw;
+}
+
+.YTembed button {
+    /* margin-left: 10px; */
+    padding: 5px 8px;
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    outline: 1px solid white;
+
+
+}
+
+.YTembed input {
+    padding: 5px 8px;
+    background-color: #282828;
+    color: white;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    outline: 1px solid white;
+    width: 70%;
+
+}
+
+.YTembed input::placeholder {
+    color: #ccc;
+}
+
+.YTembed iframe {
+    width: min(80vw, 400px);
+    height: 260px;
+    margin-top: 25px;
+}
+
+.YtcloseBtn svg {
+    border: 1px solid white;
+    padding: 3px 5px;
+    border-radius: 50%;
+    box-shadow: #000 2px 3px 10px;
+    cursor: pointer;
+}
+
+.YtcloseBtn svg:hover {
+    color: gray;
+    background-color: white;
+}
+
+
+.YtcloseBtn {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width:768px) {
+    .YTembed {
+        width: 93vw;
+        z-index: 99999;
+        padding: 10px ;
+        top: 45%;
+    }
+
+    .YtcloseBtn svg {
+        border: 1px solid white;
+        padding: 6px 9px;
+        border-radius: 50%;
+        box-shadow: #000 2px 3px 10px;
+        cursor: pointer;
+    }
+
+    .YTembed iframe {
+        width: 100%;
+        height: 260px;
+    }
+
+    .YTembed input,.YTembed button{
+        font-size: 15px;
+    }
+}
+
+.volSlider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.soundButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.soundButtons button {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 0 10px;
+    padding: 5px;
+    transition: transform 0.2s;
+    filter: drop-shadow(#000 2px 2px 2px);
+}
+
+.soundButtons button:hover {
+    transform: scale(1.1);
+}
+
+.soundButtons .active {
+    color: #adeaed;
+}
+
+.soundButtons .activeIcon {
+    color: #31ffbe;
+    filter: drop-shadow(#00aeff 0px 0px 5px);
+}
+
+
+
+.thequote {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: #000 0px 0px 3px;
+    color: white;
+
+}
+
+.theauthor {
+    text-shadow: #000 0px 0px 3px;
+    font-size: 18px;
+    color: white;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 768px) {
+    .quotediv {
+        padding: 10px;
+    }
+
+    .thequote {
+        font-size: 15px;
+    }
+
+    .theauthor {
+        font-size: 12px;
+    }
+
+    .quotediv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        text-align: center;
+        /* max-width: 250px; */
+        position: absolute;
+        top: 20vh;
+        text-shadow: #000 0px 0px 3px;
+        width: 100%;
+        /* transform: translate(-50%, -50%); */
+    }
+
+}

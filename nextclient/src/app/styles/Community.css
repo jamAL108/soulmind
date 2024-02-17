@@ -1,0 +1,738 @@
+.cmnitypage {
+  scroll-behavior: smooth;
+  transition: 0.3s all ease-in-out;
+  min-height: 100vh;
+
+}
+
+.dark.linearbgcmitypg {
+  background: linear-gradient(#282828, #363636);
+}
+
+.linearbgcmitypg {
+  transition: 0.3s all ease-in-out;
+  background: linear-gradient(#fff, #f2b5bb, #5faae3, #939bcb);
+}
+
+.supportIcon {
+  color: #f55656;
+  font-weight: 300px;
+  position: relative;
+  cursor: pointer;
+}
+
+.supportIcon::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 3px;
+  background-color: rgb(0, 162, 255);
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50px;
+
+}
+
+.sendIcon {
+  color: #313131;
+}
+
+.dark.sendIcon {
+  color: #ccc;
+}
+
+.dark.noOfSupports {
+  color: #ffffffd9;
+}
+
+.noOfSupports {
+  color: black;
+}
+
+.CMT {
+
+
+  transition: 0.3s all ease-in-out;
+}
+
+.dark.cmnitypage header {
+  color: white;
+}
+
+.cmnitypage header {
+  font-size: 17px;
+  color: black;
+  padding: 3% 20%;
+  padding-top: 100px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.head_st {
+  color: #13436b;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.dark.head_st {
+  color: #e4f3ff;
+}
+
+.allposts {
+  display: flex;
+  gap: 70px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding-bottom: 150px;
+}
+
+.post {
+  /* border: 2px solid white; */
+  max-width: 30%;
+  min-width: 30%;
+  padding: 10px 15px;
+  background-color: #fff;
+  color: white;
+  border-radius: 10px;
+/*   box-shadow: #00000067 0px 0px 10px; */
+  position: relative;
+
+}
+
+.dark.post {
+  background-color: #363636;
+/*   box-shadow: #00000067 0px 0px 10px; */
+/*   border: 1px solid rgba(255, 255, 255, 0.437); */
+  color: white;
+}
+
+.dark.posthead {
+  color: white;
+}
+
+.posthead {
+  display: flex;
+  color: black;
+  padding: 20px 20px;
+  align-items: center;
+  font-family: 'Baloo Bhai 2';
+}
+
+.posthead img {
+  height: 30px;
+  border-radius: 50%;
+  margin: 0px 30px;
+  margin-left: 0;
+}
+
+.post_content {
+  font-family: 'Montserrat';
+  padding: 30px;
+  padding-bottom: 10px;
+  padding-top: 0;
+  cursor : pointer;
+}
+
+.post .post_actions {
+  padding: 0px 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.post .supports {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.posthead .name {
+  font-weight: 700;
+}
+
+.dark.post_text {
+  color: white;
+}
+
+.post_text {
+  font-size: 15px;
+  line-height: 25px;
+  text-align: justify;
+  color: #000;
+}
+
+
+.form-popup {
+  position: fixed;
+  z-index: 9999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  font-family: sans-serif, 'Poppins';
+  transition: 0.3s all ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-popup form {
+  background-color: #20242a;
+  min-width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.form-popup h3 {
+  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 30px;
+
+}
+
+.form-popup label {
+  display: block;
+  width: 90%;
+  margin: auto;
+
+  margin-bottom: 15px;
+
+}
+
+.form-popup input,
+.form-popup textarea {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+  background-color: #00000000;
+  color: white;
+  font-size: 13px;
+  font-family: 'Baloo Bhai 2', Arial, Helvetica, sans-serif;
+}
+
+.form-popup button[type="submit"],
+.form-popup button[type="button"] {
+  display: block;
+  width: 80px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  /* background-color: #4caf50; */
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.submitbtn {
+  transition: 0.3s all ease;
+  background-color: #152446;
+  background: rgb(43, 93, 66);
+  background: linear-gradient(34deg, rgb(10, 102, 53)0%, rgba(0, 168, 79, 1) 98%);
+}
+
+.closebtn {
+  background-color: #28478f;
+
+}
+
+
+.submitbtn:hover {
+  transition: 0.3s all ease;
+
+  background-color: #28478f;
+  background: rgb(43, 93, 66);
+  background: linear-gradient(34deg, rgb(21, 118, 67)0%, rgb(18, 164, 87) 98%);
+  transform: scale(1.1);
+}
+
+.closebtn:hover {
+  /* background-color: #152446; */
+  transform: scale(1.1);
+
+}
+
+.sharesection {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, #00000045 0%, rgba(0, 0, 0, 0) 80%);
+  /* backdrop-filter: blur(4px); */
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.share_btn {
+  display: inline-flex;
+  justify-content: center;
+  height: 40px;
+  padding: 10px 20px;
+  background-color: #152446;
+  border: none;
+  outline: none;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  border-radius: 20px;
+  border: 2px solid white;
+}
+
+.errormessage {
+  font-size: small;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: rgb(196, 95, 95);
+  font-weight: 700;
+}
+
+
+
+
+@media screen and (max-width : 1024px) {
+  .cmnitypage header {
+    font-size: 14px;
+    padding: 10% 10%;
+    padding-top: 100px;
+  }
+
+  .head_st {
+    font-size: 25px;
+  }
+
+  .post {
+    max-width: 85%;
+    min-width: 70%;
+    padding: 10px 10px;
+    /* background-color: #1e2227; */
+    color: white;
+    border-radius: 8px;
+    /* box-shadow: #000 0px 0px 10px; */
+
+  }
+
+  .posthead {
+    display: flex;
+    /* color: white; */
+    padding: 10px 10px;
+    align-items: center;
+    align-items: center;
+    font-family: 'Baloo Bhai 2';
+    /* margin-bottom: 20px; */
+  }
+
+  .posthead img {
+    height: 20px;
+    border-radius: 50%;
+    margin: 0px 30px;
+    margin-left: 0;
+  }
+
+  .posthead .name {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .post_content {
+    font-family: 'Montserrat';
+    padding: 10px 5px;
+    padding-top: 0;
+  }
+
+  .post .post_actions {
+    padding: 0px 5px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .post_text {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: left;
+    letter-spacing: 0.3px;
+  }
+
+  .sharesection {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, #000000d6 0%, rgba(0, 0, 0, 0) 80%);
+    /* backdrop-filter: blur(4px); */
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .share_btn {
+    display: inline-flex;
+    justify-content: center;
+    height: 40px;
+    padding: 5px 10px;
+    background-color: #152446;
+    border: none;
+    outline: none;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    border-radius: 20px;
+    border: 1px solid white;
+  }
+
+  .form-popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    font-family: sans-serif, 'Poppins';
+    transition: 0.3s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-popup form {
+    background-color: #20242a;
+    max-width: 70%;
+    min-width: 70%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  .form-popup h3 {
+    margin-top: 0;
+    font-size: 14px;
+    margin-bottom: 30px;
+
+  }
+
+  .form-popup label {
+    display: block;
+    width: 90%;
+    margin: auto;
+
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
+
+  .form-buttons {
+    display: flex;
+  }
+
+
+  .form-popup input,
+  .form-popup textarea {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
+    background-color: #00000000;
+    color: white;
+    font-size: 13px;
+    font-family: 'Baloo Bhai 2', Arial, Helvetica, sans-serif;
+  }
+
+  .form-popup button[type="submit"],
+  .form-popup button[type="button"] {
+    display: block;
+    width: 32%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    /* background-color: #4caf50; */
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s all ease;
+  }
+
+  .submitbtn {
+    transition: 0.3s all ease;
+    background-color: #152446;
+    background: rgb(43, 93, 66);
+    background: linear-gradient(34deg, rgb(10, 102, 53)0%, rgba(0, 168, 79, 1) 98%);
+  }
+
+  .closebtn {
+    background-color: #28478f;
+
+  }
+
+
+  .submitbtn:hover {
+    transition: 0.3s all ease;
+
+    background-color: #28478f;
+    background: rgb(43, 93, 66);
+    background: linear-gradient(34deg, rgb(21, 118, 67)0%, rgb(18, 164, 87) 98%);
+    transform: scale(1.1);
+  }
+
+  .closebtn:hover {
+    /* background-color: #152446; */
+    transform: scale(1.1);
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************POST PAGE*********/
+
+.postPage {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#fff, #f2b5bb, #5faae3, #939bcb);
+  padding-top: 130px;
+}
+
+.dark.postPage {
+  background: linear-gradient(#282828, #363636);
+}
+
+.post .BackBTNPost {
+  position: absolute;
+  top: -6%;
+  left: -5%;
+  background-color: white;
+  border-radius: 50px;
+  outline: none;
+  color: black;
+  border: none;
+  box-shadow: #0000007c 5px 3px 10px;
+  padding: 7px 12px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.post .BackBTNPost:hover {
+  padding-right: 60px;
+}
+
+.post .BackBTNPost::after {
+  content: "Back";
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  font-family: "Baloo Bhai 2";
+  left: 35px;
+  top: 3px;
+  opacity: 0;
+  transition: opacity 0.1s;
+  transition-delay: 0.18s;
+  /* Delay the opacity transition */
+}
+
+.post .BackBTNPost:hover::after {
+  opacity: 1;
+  /* Change opacity to 1 on hover */
+}
+
+
+/* Styles for the Share Popup */
+.CMT .share-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.627);
+  /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Ensure it appears above other elements */
+}
+
+.CMT .share-popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  /* Adjust as needed */
+  max-width: 80vw;
+  text-align: center;
+  position: relative;
+}
+
+.CMT .dark.share-popup-content {
+  background-color: #282828;
+  color: white;
+  border: 2px solid white;
+}
+
+.CMT .share-popup .close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  font-size: 25px;
+  background-color: rgb(255, 8, 8);
+  opacity: 1;
+  border-radius: 50%;
+  padding: 8px 12px;
+  color: white;
+  box-shadow: #000 3px 5px 10px;
+}
+
+.CMT .share-popup h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Share buttons */
+.CMT .share-popup button {
+  background-color: #007bff;
+  /* Blue color, you can change it */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.CMT .share-popup button:hover {
+  background-color: #0056b3;
+  /* Darker blue color on hover */
+}
+
+/* Post link text */
+.CMT .share-popup p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* You can add more specific styles as needed for each button or element */
+
+/**********************************/
+
+.postPage .share-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.627);
+  /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Ensure it appears above other elements */
+}
+
+.postPage .share-popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  /* Adjust as needed */
+  max-width: 80vw;
+  text-align: center;
+  position: relative;
+}
+
+.postPage .dark.share-popup-content {
+  background-color: #282828;
+  color: white;
+  border: 2px solid white;
+}
+
+.postPage .share-popup .close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  font-size: 25px;
+  background-color: rgb(255, 8, 8);
+  opacity: 1;
+  border-radius: 50%;
+  padding: 8px 12px;
+  color: white;
+  box-shadow: #000 3px 5px 10px;
+}
+
+.postPage .share-popup h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Share buttons */
+.postPage .share-popup button {
+  background-color: #007bff;
+  /* Blue color, you can change it */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.postPage .share-popup button:hover {
+  background-color: #0056b3;
+  /* Darker blue color on hover */
+}
+
+/* Post link text */
+.postPage .share-popup p {
+  margin: 10px 0;
+  font-size: 16px;
+}

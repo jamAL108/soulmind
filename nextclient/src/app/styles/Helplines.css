@@ -1,0 +1,277 @@
+.dark.helplinespage .t2 {
+    background-color: #2f3b44;
+}
+.dark.helplinespage .t1 {
+    background-color: #4a4e52;
+}
+
+.dark.helplinespage .heading {
+    background-color: #474f55;
+    color: white;
+}
+
+.dark.helplinespage {
+    background-color: #282828;
+    color: white;
+}
+
+.helplinespage {
+    transition: 0.18s all ease-in-out;
+    /* background: linear-gradient(#fff, #f2b5bb,#5faae3, #f2b5bb); */
+    /* background-color: #FEF3D8; */
+    background-color: white;
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+}
+
+
+/* animations */
+.helplinespage {
+    animation: transitionIn 0.4s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.helplinespage .border {
+    border-style: dotted;
+}
+
+.helplinespage .heading {
+    width: 90%;
+    margin: auto;
+    background-color: #F2B5AF;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.helplinespage .heading h1 {
+    padding: 10px 0px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.helplinespage .t2:last-child {
+    margin-bottom: 1rem;
+}
+
+.helplinespage .t2 {
+    background-color: #939BCB;
+    height: 60%;
+    width: 90%;
+    margin: auto;
+}
+
+
+
+.helplinespage .t1 {
+    background-color: #f2b5bb;
+    height: 60%;
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.helplinespage .row {
+    padding: 45px;
+    margin: auto;
+}
+
+.helplinespage .col-sm {
+    border: #FEF2F4;
+    border-style: none solid;
+}
+
+.helplinespage .row .col-sm .subheading {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.helplinespage .row .col-sm .info {
+    max-height: 40%;
+    height: 40%;
+}
+
+.helplinespage .row .col-sm .Helpline {
+    max-height: 10%;
+    height: 10%;
+    margin-bottom: 1rem;
+}
+
+
+.helplinespage .row .col-sm .website {
+    max-width: 100%;
+    width: 10rem;
+}
+
+
+.btn {
+    display: inline-block;
+    width: 30%;
+    height: 1.6%;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 2px 4px 6px -1px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+
+.btn:hover {
+    background-color: #FEF2F4;
+    color: black;
+    text-decoration: none;
+    box-shadow: 2px 4px 6px -1px rgba(0, 0, 0, 0.6);
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+}
+
+@media (max-width: 600px) {
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width : 940px) {
+    /* animation */
+
+    .hoi {
+        position: relative;
+        opacity: 0;
+        transform: translateY(150px);
+        transition: all 1.5s;
+    }
+
+    .hoi.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+}
+
+@media screen and (max-width : 940px) {
+    .helplinespage {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        font-size: 62.5%;
+    }
+
+    .helplinespage .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .helplinespage .t2 .row .col-sm,
+    .helplinespage .t2 .row .col-sm {
+        height: 45%;
+    }
+
+    .helplinespage .t2 .row .col-sm {
+        border: none;
+        padding-bottom: 1.2rem;
+        border-bottom: 0.28rem solid wheat;
+        border-radius: 18px;
+    }
+
+    .helplinespage .t1 .row .col-sm:last-child {
+        border-bottom: none;
+    }
+
+    .helplinespage .t2 .row .col-sm:last-child {
+        border-bottom: none;
+    }
+
+    .helplinespage .row .col-sm .subheading {
+        width: 100%;
+        height: auto;
+    }
+
+    .helplinespage .t1 .row .col-sm {
+        border: none;
+        padding-bottom: 1.2rem;
+        border-bottom: 0.28rem solid #939BCB;
+        border-radius: 18px;
+    }
+
+    .helplinespage .row .col-sm .website .btn {
+        width: 30%;
+        height: 1%;
+    }
+
+
+    .helplinespage .row {
+        padding: 0px;
+        margin: auto;
+    }
+
+
+    .helplinespage .t2,
+    .helplinespage .t1 {
+        background-color: inherit;
+    }
+
+    .helplinespage .t1 .row .col-sm {
+        background-color: #f2b5bb;
+    }
+
+    .helplinespage .t2 .row .col-sm {
+        background-color: #939BCB;
+    }
+
+    .helplinespage .row .col-sm {
+        padding: 45px;
+        margin: auto;
+    }
+
+    .helplinespage .col-sm:nth-of-type(odd) {
+        transform: translateX(400%);
+        transition: 1.5s ease;
+    }
+
+    .helplinespage .col-sm:nth-of-type(even) {
+        transform: translateX(-400%);
+        transition: 1.5s ease;
+    }
+
+    .helplinespage .col-sm.show {
+        transform: translateX(0);
+    }
+
+    .btn {
+        width: 30%;
+        height: 0.8%;
+    }
+
+}

@@ -1,0 +1,204 @@
+.edupage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 70px;
+    background: linear-gradient(#fff, #8ee5ff, #1f8ee4);
+}
+
+.dark.edupage{
+    background: linear-gradient(#282828, #2b374a, rgb(49, 56, 69));
+} 
+
+.edupage header {
+    margin-bottom: 30px;
+}
+
+.dark.edupage header h1 {
+    color: #eeeeee;
+}
+
+.dark.edupage header p {
+    color: #dcefff;
+}
+.edupage header h1 {
+    padding-top: 120px;
+    text-align: center;
+    color: #13436b;
+    font-family: 'Poppins', sans-serif;
+}
+
+.edupage header p {
+    text-align: center;
+}
+
+.allresources {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    gap: 30px;
+}
+
+.res {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+
+}
+
+.dark.res{
+    background-color: #222324;
+    border: 1px solid rgba(255, 255, 255, 0.515);
+}
+.dark.res h2 {
+    color: white;
+}
+.dark.res p {
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+.res h2 {
+    font-size: 20px;
+    margin-top: 0;
+    font-family: 'Montserrat';
+    padding: 10px 30px;
+    padding-top: 20px;
+
+
+}
+
+.res p {
+    font-size: 16px;
+    color: #434343;
+    font-family: 'Poppins';
+    padding: 10px 30px;
+
+
+}
+
+.res a {
+    display: inline-flex;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px 30px;
+    padding: 10px 30px;
+    font-family: 'Poppins';
+    align-items: center;
+
+
+}
+
+.res svg {
+    height: 10px;
+    width: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0064cf;
+
+}
+
+
+@media screen and (max-width:768px) {
+    .edupage {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 70px;
+        background: linear-gradient(#fff, #8ee5ff, #1f8ee4);
+    }
+
+    .edupage header {
+        margin-bottom: 30px;
+    }
+
+    .edupage header h1 {
+        padding: 0 30px;
+        padding-top: 50px;
+        padding-top: 120px;
+        text-align: center;
+        color: #13436b;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+    }
+
+    .edupage header p {
+        text-align: center;
+        padding: 0 40px;
+        padding-top: 30px;
+
+    }
+
+    .allresources {
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .res {
+        background-color: #fff;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 100%;
+
+    }
+
+    .res h2 {
+        font-size: 20px;
+        margin-top: 0;
+        font-family: 'Montserrat';
+        padding: 10px 30px;
+        padding-top: 20px;
+
+
+    }
+
+    .res p {
+        font-size: 14px;
+        
+        color: #434343;
+        font-family: 'Poppins';
+        padding: 10px 30px;
+
+
+    }
+
+    .res a {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #007bff;
+        text-decoration: none;
+        width: 70%;
+        padding: 30px;
+        font-family: 'Poppins';
+        align-items: center;
+
+
+    }
+
+    .res svg {
+        height: 10px;
+        width: 10px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #0064cf;
+
+    }
+}
