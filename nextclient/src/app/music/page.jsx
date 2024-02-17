@@ -466,7 +466,7 @@ const MusicScreen = ({ slides }) => {
                                             Notes
                                         </DropdownMenuItem>
                                         <DropdownMenuItem className='music-items' value="db">Deep breathe</DropdownMenuItem>
-                                        <DropdownMenuItem className='music-items' value="pdfv">Pdf Viewer</DropdownMenuItem>
+                                        {/* <DropdownMenuItem className='music-items' value="pdfv">Pdf Viewer</DropdownMenuItem> */}
                                     </DropdownMenuContent>
                                 </DropdownMenu>
 

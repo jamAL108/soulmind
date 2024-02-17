@@ -83,7 +83,7 @@ function ChatBot() {
         <main>
           <h1>&nbsp;</h1>
 
-          <section ref={chatContainerRef} className="allChatsContainer">
+          <section ref={chatContainerRef} className={theme + " allChatsContainer"}>
             {chats && chats.length
               ? chats.map((chat : any, index : number) => (
                 <p key={index} className={chat.role === "user" ? "user_msg" : ""}>
@@ -99,7 +99,7 @@ function ChatBot() {
             </p>
           </div>
 
-          <div className="inputChat" >
+          <div className={theme + " inputChat"} >
             <form action="" onSubmit={(e) => chat(e, message)}>
               <input
                 type="text"
