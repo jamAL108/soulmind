@@ -26,10 +26,10 @@ const Contact = () => {
 
     useEffect(() => {
         // Update document title when component mounts
-        document.title = 'InnerCalmᴮᴱᵀᴬ - Contact Us';
+        document.title = 'SoulMindᴮᴱᵀᴬ - Contact Us';
         // Clean up document title when component unmounts
         return () => {
-            document.title = 'InnerCalm';
+            document.title = 'SoulMind';
         }
     }, []);
 

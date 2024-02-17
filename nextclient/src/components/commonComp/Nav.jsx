@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 
-import { usePathname  , useRouter } from 'next/navigation';
+import { usePathname , useRouter } from 'next/navigation';
 import Link from 'next/link'
 
 import "./Nav.css"
@@ -14,7 +14,8 @@ const Nav = () => {
     const [initialTheme , setinitialTheme] = useState('light')
     const [theme , settheme ] = useState('')
     const [isChecked , setisChecked] = useState(false)
-    const [location , setLocation] = usePathname()
+    const location = usePathname()
+
     // let initialTheme = localStorage.getItem("theme");
 
 
@@ -89,6 +90,8 @@ const Nav = () => {
         };
     }, []);
 
+    console.log("location ::", location)
+
     return (
         <>
             <nav style={{ position: "fixed", padding: '0px 20px' }} className={theme + " navbar"}>
@@ -103,20 +106,20 @@ const Nav = () => {
                         <Link className={location === "/" ? theme + " activeNav" : "#"} href="/"><FontAwesomeIcon className='navBarIcons' icon={faHome} /> Home</Link>
                     </li>
                     <li>
-                        <Link className={location === "music" ? theme + " activeNav" : "#"} href="/music"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> Music</Link>
+                        <Link className={location === "/music" ? theme + " activeNav" : "#"} href="/music"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> Music</Link>
                     </li>
                     <li>
-                        <Link className={location === "community" ? theme + " activeNav" : "#"} href="/community"> <FontAwesomeIcon className='navBarIcons' icon={faUsers} />Community</Link>
+                        <Link className={location === "/community" ? theme + " activeNav" : "#"} href="/community"> <FontAwesomeIcon className='navBarIcons' icon={faUsers} />Community</Link>
                     </li>
                     <li>
-                        <Link className={location === "education" ? theme + " activeNav" : "#"} href="/education"><FontAwesomeIcon className='navBarIcons' icon={faBook} /> Education</Link>
+                        <Link className={location === "/education" ? theme + " activeNav" : "#"} href="/education"><FontAwesomeIcon className='navBarIcons' icon={faBook} /> Education</Link>
                     </li>
 
                     <li>
-                        <Link className={location === "helplines" ? theme + " activeNav" : "#"} href="/helplines"><FontAwesomeIcon className='navBarIcons' icon={faPhone} /> Helplines</Link>
+                        <Link className={location === "/helplines" ? theme + " activeNav" : "#"} href="/helplines"><FontAwesomeIcon className='navBarIcons' icon={faPhone} /> Helplines</Link>
                     </li>
                     <li>
-                        <Link className={location === "contact" ? theme + " activeNav" : "#"} href="/contact"><FontAwesomeIcon className='navBarIcons' icon={faHandHoldingHeart} /> Contact us</Link>
+                        <Link className={location === "/contact" ? theme + " activeNav" : "#"} href="/contact"><FontAwesomeIcon className='navBarIcons' icon={faHandHoldingHeart} /> Contact us</Link>
                     </li>
                 </ul>
 

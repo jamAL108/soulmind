@@ -30,10 +30,10 @@ const Community = () => {
 
     useEffect(() => {
         // Update document title when component mounts
-        document.title = 'InnerCalmᴮᴱᵀᴬ - Community';
+        document.title = 'SoulMindᴮᴱᵀᴬ - Community';
         // Clean up document title when component unmounts
         return () => {
-            document.title = 'InnerCalm';
+            document.title = 'SoulMind';
         }
     }, []);
 
@@ -212,7 +212,7 @@ const Community = () => {
 
     const shareOnWhatsApp = () => {
         const postLink = `https://innercalm.netlify.app/post/${postToShare}`;
-        const whatsappMessage = `Check out this post on InnerCalm: ${postLink}`;
+        const whatsappMessage = `Check out this post on SoulMind: ${postLink}`;
 
         // Construct the WhatsApp share URL
         const whatsappShareLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
@@ -232,7 +232,7 @@ const Community = () => {
 
     const shareOnTwitter = () => {
         const postLink = `https://innercalm.netlify.app/post/${postToShare}`;
-        const tweetText = "Check out this post on InnerCalm!";
+        const tweetText = "Check out this post on SoulMind!";
 
         // Construct the Twitter share URL
         const twitterShareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(postLink)}`;
