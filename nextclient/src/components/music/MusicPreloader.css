@@ -21,6 +21,7 @@
     color: white;
     opacity: 1;
     text-align: center;
+    font-size: 25px;
   }
   
   .preloader-popup.show {
