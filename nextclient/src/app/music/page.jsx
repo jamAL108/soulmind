@@ -228,7 +228,6 @@ const MusicScreen = ({ slides }) => {
     const handleAudioEnded = () => {
         // Call play() method on audio element to replay the music
         audioRef.current.play();
-        console.log("ended")
     };
 
     useEffect(() => {

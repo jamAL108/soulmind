@@ -64,7 +64,6 @@ const Community = () => {
             body: x,
         }).then((response) => {
             response.json()
-            // console.log(response)
             if (response.status === 200) {
                 setName("")
                 setStory("")
@@ -76,8 +75,6 @@ const Community = () => {
                 setSubErr(true)
             }
         }).then((data) => {
-            console.log(data);
-            // do something with the response data
 
 
         }).catch((error) => {
@@ -97,7 +94,6 @@ const Community = () => {
 
         if (supportedPostIds.includes(postId)) {
             // If the post is already supported, call the endpoint to un-support it
-            console.log("Un-supporting post", postId);
 
             fetch(`https://server-innercalm.vercel.app/api/notSupportPost?id=${postId}`, {
                 method: 'PUT',
@@ -124,7 +120,6 @@ const Community = () => {
                 });
         } else {
             // If the post is not supported, call the endpoint to support it
-            console.log("Supporting post", postId);
 
             fetch(`https://server-innercalm.vercel.app/api/supportPost?id=${postId}`, {
                 method: 'PUT',

@@ -11,12 +11,6 @@ export const loginWithGoogle=async()=>{
 };
 
 
-// export const authCheck=()=>{
-//     onAuthStateChanged(auth,(response)=>{
-//         console.log(response)
-//     })
-
-// }
 
 export const logout = () => {
     signOut(auth);

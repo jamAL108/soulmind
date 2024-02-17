@@ -32,7 +32,8 @@ const Nav = () => {
     const [isChecked, setisChecked] = useState(false)
     const location = usePathname()
     const [profileURL , setProfileURL] = useState(auth?.currentUser?.photoURL)
-
+    console.log(auth)
+    console.log(profileURL)
     useEffect(()=>{
         setProfileURL(auth?.currentUser?.photoURL)
     },[auth?.currentUser?.photoURL])
@@ -73,22 +74,6 @@ const Nav = () => {
     const logout = () =>{
         console.log("emow")
     }
-    // const [countForChangeTheme, setCountForChangeTheme] = useState(0);
-    // useEffect(()=>{
-    //     localStorage.setItem("theme", prev === "dark" ? "light" : "dark");
-    //     window.location.reload();
-    // },[countForChangeTheme])
-    // // If theme is not set in localStorage, default to "light"
-    // if (!initialTheme) {
-    //     initialTheme = "light";
-    //     localStorage.setItem("theme", initialTheme);
-    // }
-
-
-    // const location = router.pathname;
-    // const theme = (location === "music" ? "dark" : initialTheme);
-
-    // const isChecked = (theme === "light");
 
     const handleToggle = () => {
         let newTheme = ''
@@ -163,7 +148,7 @@ const Nav = () => {
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <div className='!w-[10px] !h-[10px] !rounded-full overflow-hidden'>
-                                    <img src={profileURL} alt='wefre' className='w-[20px] h-[20px] rounded-full'/>
+                                    <img src={profileURL} alt='Profile' className='w-[20px] h-[20px] rounded-full'/>
                                 </div>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56">

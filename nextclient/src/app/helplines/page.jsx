@@ -29,12 +29,10 @@ const Helplines = () => {
     const [dabbaa, setdabba] = useState([]);
     useEffect(() => {
         setdabba(colref.current);
-        console.log(colref.current);
     }, [colref])
     // 
 
     const dabba = document.querySelectorAll(".col-sm");
-    console.log(dabba);
     const fungi = () => {
         const trigger = window.innerHeight / 5 * 4;
         dabba.forEach((box) => {
