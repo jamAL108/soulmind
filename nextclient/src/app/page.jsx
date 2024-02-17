@@ -1,5 +1,4 @@
 'use client'
-//Docs is our only page....
 import React from "react";
 import ModalComponent from "@/components/home/ModelComponent"
 import { loginWithGoogle } from "@/apis/auth";
