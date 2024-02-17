@@ -1,7 +1,8 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+// import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useRouter } from "next/navigation";
 import Nav from "../../../components/commonComp/Nav"
-import defpp from "../../../components/defpp.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartSupported, faClose } from "@fortawesome/free-solid-svg-icons";
@@ -9,17 +10,29 @@ import { faHeart, faPaperPlane as faShareNodesRegular } from "@fortawesome/free-
 import { FaWhatsapp, FaInstagram, FaTwitter, FaCopy } from "react-icons/fa";
 
 function Post() {
-    if (localStorage.getItem("theme") !== "light")
-        localStorage.setItem("theme", "dark")
+    // if (localStorage.getItem("theme") !== "light")
+    //     localStorage.setItem("theme", "dark")
 
-    let theme = localStorage.getItem("theme")
+    // let theme = localStorage.getItem("theme")
 
+    const router = useRouter();
     const { postId } = useParams();
     const [post, setPost] = useState({});
     const [supported, setSupported] = useState(false);
     const [supportsCount, setSupportsCount] = useState(0);
-    const [showSharePopup, setShowSharePopup] = useState(false); // Add this state
-    const navigate = useNavigate();
+    const [showSharePopup, setShowSharePopup] = useState(false); 
+    const [supportedpostIds ,setSupportedPostIds] = useState([])
+    // Add this state
+    // const navigate = useNavigate();
+    const [theme,settheme] = useState();
+    useEffect(()=>{
+        let themeVal = localStorage.getItem("theme")
+        settheme(themeVal)
+    
+        const parsedData = JSON.parse(localStorage.getItem("supportedPostIds"))
+        setSupportedPostIds(parsedData)
+    
+        },[])
 
     useEffect(() => {
         const fetchPostData = async () => {
@@ -126,11 +139,11 @@ function Post() {
 
             <div className={theme + " postPage"}>
                 <div className={theme + " post"}>
-                    <button className="BackBTNPost" onClick={() => { navigate(-1) }}>
+                    <button className="BackBTNPost" onClick={() => { router.push("/community") }}>
                         <FontAwesomeIcon icon={faArrowLeft} />
                     </button>
                     <div className={theme + " posthead"}>
-                        <img src={defpp} alt="" />
+                        <img src="/images/defpp.jpg" alt="" />
                         <p style={{ margin: "0px" }} className="name">
                             {"User" + Math.floor(Math.random() * 1000000)}
                         </p>
