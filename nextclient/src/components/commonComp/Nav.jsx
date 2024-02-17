@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { auth } from '@/apis/firebaseConfig';
 
+import { logout } from '@/apis/auth'
+
 const Nav = () => {
     const router = useRouter()
 
@@ -70,7 +72,9 @@ const Nav = () => {
         }
     }, [theme])
 
-    const logout = () =>{
+    const logoutFunction = () =>{
+        logout()
+        router.push('/')
         console.log("emow")
     }
     // const [countForChangeTheme, setCountForChangeTheme] = useState(0);
@@ -162,8 +166,8 @@ const Nav = () => {
                     location !== "music" ?
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <div className='!w-[10px] !h-[10px] !rounded-full overflow-hidden'>
-                                    <img src={profileURL} alt='wefre' className='w-[20px] h-[20px] rounded-full'/>
+                                <div className='profile-user'>
+                                    <img src={profileURL} alt='wefre' className='w-[20px] h-[20px] rounded-[100px]'/>
                                 </div>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56">
@@ -174,7 +178,7 @@ const Nav = () => {
                                     <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
                                 </DropdownMenuRadioGroup>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
+                                <DropdownMenuItem onClick={logoutFunction}>Logout</DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                         :
