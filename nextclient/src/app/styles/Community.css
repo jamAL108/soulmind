@@ -736,3 +736,69 @@
   margin: 10px 0;
   font-size: 16px;
 }
+
+.sortBydropDownBtn{
+  position:absolute;
+  right: 30vw;
+  top : 0;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
+.sortBydropDownBtn:hover{
+  background: #0000001e;
+}
+
+.sortbyDropDown{
+  width: 120px;
+  background-color: white;
+  position:absolute;
+  right: 30vw;
+  /* top : 0; */
+  padding: 10px;
+  top : 42px;
+  padding:5px 10px ;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.099);
+  border-radius: 6px;
+  z-index: 99999;
+  text-align: left;
+}
+
+
+
+.dark.sortbyDropDown
+{
+  background-color: #303030;
+  border: 1px solid rgba(255, 255, 255, 0.099);
+
+}
+.sortbyDropDown button{
+  /* margin-left: 10px ; */
+  margin: 0px 0px;
+  width: 100%;
+  padding: 3px 0px;
+  border-radius: 5px;
+}
+
+.sortbyDropDown button:hover{
+  background-color: #0000002f;
+}
+
+@media screen and (max-width : 1024px) {
+  .sortBydropDownBtn{
+    position:absolute;
+    right: 20px;
+    top: -5px;
+  }
+
+  
+  .sortbyDropDown{
+    width: 100px;
+    position:absolute;
+    right: 20px;
+    top : 35px;
+    font-size: 14px;
+  }
+}
