@@ -38,6 +38,7 @@ const Notes: React.FC<any> = (props) => {
     if (resp.ok) {
       setNote("");
       setButtonStage(false);
+      setCount(cnt=>cnt+1)
     }
     console.log(resp);
   };

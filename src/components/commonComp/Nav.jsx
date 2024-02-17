@@ -135,9 +135,9 @@ const Nav = () => {
                         <Link className={location === "/education" ? theme + " activeNav" : "#"} href="/education"><FontAwesomeIcon className='navBarIcons' icon={faBook} /> Education</Link>
                     </li>
 
-                    <li>
+                    {/* <li>
                         <Link className={location === "/helplines" ? theme + " activeNav" : "#"} href="/helplines"><FontAwesomeIcon className='navBarIcons' icon={faPhone} /> Helplines</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link className={location === "/contact" ? theme + " activeNav" : "#"} href="/contact"><FontAwesomeIcon className='navBarIcons' icon={faHandHoldingHeart} /> Contact us</Link>
                     </li>
