@@ -33,6 +33,13 @@ function ChatBot() {
     }
     // eslint-disable-next-line
   }, [auth?.currentUser?.displayName])
+  
+  const [theme , settheme] = useState('light')
+  
+  useEffect(()=>{
+    let themeVal : any = localStorage.getItem("theme")
+    settheme(themeVal)
+    },[])
 
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState<any>([]);
@@ -72,7 +79,7 @@ function ChatBot() {
 
   return (
     <> <Nav />
-      <div className="chatpage">
+      <div className={theme+" chatpage"}>
         <main>
           <h1>&nbsp;</h1>
 

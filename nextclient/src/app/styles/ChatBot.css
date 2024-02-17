@@ -99,7 +99,8 @@ body {
   height: 40px;
   outline: none;
   border: none;
-  background-color: #f5deb2;
+  background-color: #303030;
+  color: white;
   padding: 0px 20px;
   border-top-right-radius:3px;
   border-bottom-right-radius:3px;
