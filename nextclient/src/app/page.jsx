@@ -13,7 +13,6 @@ const Docs = () => {
   };
   const { isAuthenticated, userData } = useCheckAuth();
   if(isAuthenticated===true){
-    // console.log("MEOW")
     router.push('/community')
   }else {
     return (
