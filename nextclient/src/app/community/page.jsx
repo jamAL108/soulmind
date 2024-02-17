@@ -260,7 +260,7 @@ const Community = () => {
             <Nav />
             <div className="CMT">
                 <div className={theme + " " + cmtpg}>
-                    <header>We believe that by sharing our experiences, we can help others feel less alone and inspire them to seek the help they need. Join us in creating a supportive and inclusive space where everyone's voice is heard.</header>
+                    <header>We believe that by sharing our experiences, we can help others feel less alone and inspire them to seek the help they need. Join us in creating a supportive and inclusive space where everyone{"'"}s voice is heard.</header>
                     <h1 className={theme + " head_st"} style={{position : "relative"}}>
                         Stories of People
                         <div onClick={()=> setisSortPopupOpen(prev=>!prev)} className={theme +" sortBydropDownBtn"}>
