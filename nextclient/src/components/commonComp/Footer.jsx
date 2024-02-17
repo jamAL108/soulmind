@@ -17,7 +17,7 @@ const Footer = () => {
     return (
         <>
             <section className="footer" style={footerStyle}>
-            ∞ Made by Team InnerCalm. 2023 
+            ∞ Made by Team SoulMind. 2023 
             </section>
 
         </>

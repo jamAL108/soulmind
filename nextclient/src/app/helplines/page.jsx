@@ -64,10 +64,10 @@ const Helplines = () => {
 
     useEffect(() => {
         // Update document title when component mounts
-        document.title = 'InnerCalmᴮᴱᵀᴬ - Helplines';
+        document.title = 'SoulMindᴮᴱᵀᴬ - Helplines';
         // Clean up document title when component unmounts
         return () => {
-            document.title = 'InnerCalm';
+            document.title = 'SoulMind';
         }
     }, []);
 
