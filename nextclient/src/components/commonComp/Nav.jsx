@@ -1,25 +1,46 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 
-import { usePathname , useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link'
+
+import Image from 'next/image'
 
 import "./Nav.css"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook, faHandHoldingHeart, faHeadphones, faHome, faPhone, faUsers } from '@fortawesome/free-solid-svg-icons';
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+    DropdownMenuItem,
+} from "@/components/ui/dropdown-menu"
+import { auth } from '@/apis/firebaseConfig';
+
 const Nav = () => {
     const router = useRouter()
 
-    const [initialTheme , setinitialTheme] = useState('light')
-    const [theme , settheme ] = useState('')
-    const [isChecked , setisChecked] = useState(false)
+    const [initialTheme, setinitialTheme] = useState('light')
+    const [userData , setUserData] = useState(null)
+    const [theme, settheme] = useState('')
+    const [isChecked, setisChecked] = useState(false)
     const location = usePathname()
+    const [profileURL , setProfileURL] = useState(auth?.currentUser?.photoURL)
+
+    useEffect(()=>{
+        setProfileURL(auth?.currentUser?.photoURL)
+    },[auth?.currentUser?.photoURL])
 
     // let initialTheme = localStorage.getItem("theme");
 
 
-    useEffect(()=>{
+    useEffect(() => {
         let ITheme = localStorage.getItem("theme");
 
         if (!ITheme) {
@@ -31,16 +52,32 @@ const Nav = () => {
 
         // const location = router.pathname;
         settheme(location === "music" ? "dark" : ITheme)
-    },[])
+
+        // setProfileURL(auth.currentUser.photoURL)
+        // setUserData(auth.currentUser)
+    }, [])
+
 
     useEffect(()=>{
-      if(theme.length!==0){
-        if(theme==='light'){
-            setisChecked(true)
-        }
-      }
-    },[theme])
+      console.log(userData)
+    },[userData])
 
+    useEffect(() => {
+        if (theme.length !== 0) {
+            if (theme === 'light') {
+                setisChecked(true)
+            }
+        }
+    }, [theme])
+
+    const logout = () =>{
+        console.log("emow")
+    }
+    // const [countForChangeTheme, setCountForChangeTheme] = useState(0);
+    // useEffect(()=>{
+    //     localStorage.setItem("theme", prev === "dark" ? "light" : "dark");
+    //     window.location.reload();
+    // },[countForChangeTheme])
     // // If theme is not set in localStorage, default to "light"
     // if (!initialTheme) {
     //     initialTheme = "light";
@@ -54,11 +91,11 @@ const Nav = () => {
     // const isChecked = (theme === "light");
 
     const handleToggle = () => {
-        let newTheme =''
-        if(isChecked===true){
+        let newTheme = ''
+        if (isChecked === true) {
             newTheme = "dark"
-        }else{
-            newTheme ='light'
+        } else {
+            newTheme = 'light'
         }
         setisChecked(!isChecked)
         localStorage.setItem("theme", newTheme);
@@ -89,8 +126,6 @@ const Nav = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-
-    console.log("location ::", location)
 
     return (
         <>
@@ -125,12 +160,23 @@ const Nav = () => {
 
                 {
                     location !== "music" ?
-                        <div className='extraNavs' style={{ opacity: scrolling ? 0 : 1 }}>
-                            <label className={`switch ${isChecked ? 'checked' : ''}`}>
-                                <input type="checkbox" checked={isChecked} onChange={handleToggle} />
-                                <span className="slider"></span>
-                            </label>
-                        </div>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <div className='!w-[10px] !h-[10px] !rounded-full overflow-hidden'>
+                                    <img src={profileURL} alt='wefre' className='w-[20px] h-[20px] rounded-full'/>
+                                </div>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56">
+                                <DropdownMenuLabel>Profile</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuRadioGroup value={theme} onValueChange={settheme}>
+                                    <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
+                                    <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
+                                </DropdownMenuRadioGroup>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                         :
                         <div style={{ width: "30px" }}>
 
