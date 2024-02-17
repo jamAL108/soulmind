@@ -34,8 +34,6 @@ const Nav = () => {
     const [isChecked, setisChecked] = useState(false)
     const location = usePathname()
     const [profileURL , setProfileURL] = useState(auth?.currentUser?.photoURL)
-    console.log(auth)
-    console.log(profileURL)
     useEffect(()=>{
         setProfileURL(auth?.currentUser?.photoURL)
     },[auth?.currentUser?.photoURL])
@@ -54,16 +52,12 @@ const Nav = () => {
         }
 
         // const location = router.pathname;
-        settheme(location === "music" ? "dark" : ITheme)
+        settheme(location === "/music" ? "dark" : ITheme)
 
         // setProfileURL(auth.currentUser.photoURL)
         // setUserData(auth.currentUser)
     }, [])
 
-
-    useEffect(()=>{
-      console.log(userData)
-    },[userData])
 
     useEffect(() => {
         if (theme.length !== 0) {
@@ -76,7 +70,6 @@ const Nav = () => {
     const logoutFunction = () =>{
         logout()
         router.push('/')
-        console.log("emow")
     }
 
     const handleToggle = () => {
@@ -136,6 +129,9 @@ const Nav = () => {
                         <Link className={location === "/community" ? theme + " activeNav" : "#"} href="/community"> <FontAwesomeIcon className='navBarIcons' icon={faUsers} />Community</Link>
                     </li>
                     <li>
+                        <Link className={location === "/chatbot" ? theme + " activeNav" : "#"} href="/chatbot"><FontAwesomeIcon className='navBarIcons' icon={faHandHoldingHeart} /> Soul-Friend</Link>
+                    </li>
+                    <li>
                         <Link className={location === "/education" ? theme + " activeNav" : "#"} href="/education"><FontAwesomeIcon className='navBarIcons' icon={faBook} /> Education</Link>
                     </li>
 
@@ -148,7 +144,7 @@ const Nav = () => {
                 </ul>
 
                 {
-                    location !== "music" ?
+                    location !== "/music" ?
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <div className='profile-user'>
@@ -156,14 +152,14 @@ const Nav = () => {
                                 </div>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56">
-                                <DropdownMenuLabel>Profile</DropdownMenuLabel>
+                                <DropdownMenuLabel>Theme</DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuRadioGroup value={theme} onValueChange={settheme}>
+                                <DropdownMenuRadioGroup value={theme} onValueChange={handleToggle}>
                                     <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
                                     <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
                                 </DropdownMenuRadioGroup>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem onClick={logoutFunction}>Logout</DropdownMenuItem>
+                                <DropdownMenuItem style={{fontWeight : "600"}} onClick={logoutFunction}>Logout</DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                         :

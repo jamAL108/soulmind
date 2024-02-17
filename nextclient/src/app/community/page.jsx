@@ -186,7 +186,6 @@ const Community = () => {
 
         }
         catch (err) {
-            console.log(err)
             setAllPosts(defaultStories)
             setSharesection({ display: "none" })
 
@@ -264,9 +263,9 @@ const Community = () => {
                     <header>We believe that by sharing our experiences, we can help others feel less alone and inspire them to seek the help they need. Join us in creating a supportive and inclusive space where everyone's voice is heard.</header>
                     <h1 className={theme + " head_st"} style={{position : "relative"}}>
                         Stories of People
-                        <div className={theme +" sortBydropDownBtn"}>
+                        <div onClick={()=> setisSortPopupOpen(prev=>!prev)} className={theme +" sortBydropDownBtn"}>
                             <div style={{display :"flex", justifyContent : "",fontSize : "22px"}}>
-                                <button onClick={()=> setisSortPopupOpen(prev=>!prev)}><MdOutlineSort /></button> 
+                                <button><MdOutlineSort /></button> 
                             </div>
                         </div>
                         {
