@@ -71,8 +71,8 @@ const Notes: React.FC<any> = (props) => {
               >
                 <h2 className="max-w-full">{item?.data}</h2>
                 <button className="absolute top-2 p-1 rounded-full bg-white right-2 text-red-500"
-                  onClick={()=>{
-                    deleteNote(item._id);
+                  onClick={ async ()=>{
+                    await deleteNote(item._id);
                     setCount(cnt=>cnt+1)
                   }}
                 >
