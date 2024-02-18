@@ -49,6 +49,7 @@ import {
 import { CiStickyNote } from "react-icons/ci";
 
 import Notes from './notes'
+import DeepBreathe from "./deepbreathe";
 
 const slideStyles = {
     width: "100%",
@@ -114,6 +115,7 @@ const MusicScreen = ({ slides }) => {
 
 
     const [notesopen, setnotesopen] = useState(false)
+    const [deepBreatheOpen, setBreatheOpen] = useState(false)
 
     const [dropdownOpen , setdropdownOpen] = useState(false)
 
@@ -345,6 +347,9 @@ const MusicScreen = ({ slides }) => {
                 {notesopen===true && (
                      <Notes open={notesopen} setopen={setnotesopen}/>
                 )}
+                {deepBreatheOpen && (
+                    <DeepBreathe setopen={setBreatheOpen}/>
+                )}
                 <div style={slideStylesWidthBackground} >
                     <div>
                         <audio
@@ -465,7 +470,11 @@ const MusicScreen = ({ slides }) => {
                                         }}>
                                             Notes
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem className='music-items' value="db">Deep breathe</DropdownMenuItem>
+                                        <DropdownMenuItem className='music-items' value="db" onClick={(e)=>{
+                                            e.preventDefault()
+                                            setdropdownOpen(false)
+                                            setBreatheOpen(true)
+                                        }}>Deep breathe</DropdownMenuItem>
                                         {/* <DropdownMenuItem className='music-items' value="pdfv">Pdf Viewer</DropdownMenuItem> */}
                                     </DropdownMenuContent>
                                 </DropdownMenu>

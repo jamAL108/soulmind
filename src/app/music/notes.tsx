@@ -46,7 +46,7 @@ const Notes: React.FC<any> = (props) => {
   return (
     <div className="z-[1000] w-[100vw] h-[100vh] flex justify-center items-center absolute bg-[rgba(0,0,0,0.5)]">
       <div
-        className="w-[500px] rounded-[20px] h-[80vh] flex items-center flex-col text-white border border-white"
+        className="w-[500px] max-w-[90vw] rounded-[20px] h-[80vh] flex items-center flex-col text-white border border-white"
         style={{ backdropFilter: " blur(10px) brightness(70%)" }}
       >
         <div className="w-full p-[15px] flex justify-between items-center text-white">
@@ -71,8 +71,8 @@ const Notes: React.FC<any> = (props) => {
               >
                 <h2 className="max-w-full">{item?.data}</h2>
                 <button className="absolute top-2 p-1 rounded-full bg-white right-2 text-red-500"
-                  onClick={()=>{
-                    deleteNote(item._id);
+                  onClick={ async ()=>{
+                    await deleteNote(item._id);
                     setCount(cnt=>cnt+1)
                   }}
                 >

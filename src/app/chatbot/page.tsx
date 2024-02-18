@@ -91,13 +91,11 @@ function ChatBot() {
                 </p>
               ))
               : ""}
+            {isTyping && <p>
+              <i>{isTyping ? "Typing" : ""}</i>
+            </p>}
           </section>
 
-          <div className={isTyping ? "" : "hide"}>
-            <p>
-              <i>{isTyping ? "Typing" : ""}</i>
-            </p>
-          </div>
 
           <div className={theme + " inputChat"} >
             <form action="" onSubmit={(e) => chat(e, message)}>

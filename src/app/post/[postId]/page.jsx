@@ -8,6 +8,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartSupported, faClose } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faPaperPlane as faShareNodesRegular } from "@fortawesome/free-regular-svg-icons";
 import { FaWhatsapp, FaInstagram, FaTwitter, FaCopy } from "react-icons/fa";
+import "../../styles/Community.css"
 
 function Post() {
     // if (localStorage.getItem("theme") !== "light")
@@ -20,19 +21,20 @@ function Post() {
     const [post, setPost] = useState({});
     const [supported, setSupported] = useState(false);
     const [supportsCount, setSupportsCount] = useState(0);
-    const [showSharePopup, setShowSharePopup] = useState(false); 
-    const [supportedpostIds ,setSupportedPostIds] = useState([])
+    const [showSharePopup, setShowSharePopup] = useState(false);
+    const [supportedpostIds, setSupportedPostIds] = useState([])
     // Add this state
     // const navigate = useNavigate();
-    const [theme,settheme] = useState();
-    useEffect(()=>{
+    const [theme, settheme] = useState();
+    useEffect(() => {
         let themeVal = localStorage.getItem("theme")
         settheme(themeVal)
-    
+
         const parsedData = JSON.parse(localStorage.getItem("supportedPostIds"))
-        setSupportedPostIds(parsedData)
-    
-        },[])
+        if(parsedData)
+            setSupportedPostIds(parsedData)
+
+    }, [])
 
     useEffect(() => {
         const fetchPostData = async () => {
@@ -96,7 +98,7 @@ function Post() {
     };
 
     const shareOnWhatsApp = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
         const whatsappMessage = `Check out this post on InnerCalm: ${postLink}`;
 
         const whatsappShareLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
@@ -105,14 +107,14 @@ function Post() {
     };
 
     const shareOnInstagram = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
         const instagramShareLink = `https://www.instagram.com/share?url=${encodeURIComponent(postLink)}`;
 
         window.open(instagramShareLink, '_blank');
     };
 
     const shareOnTwitter = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
         const tweetText = "Check out this post on InnerCalm!";
 
         const twitterShareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(postLink)}`;
@@ -121,7 +123,7 @@ function Post() {
     };
 
     const copyLink = () => {
-        const postLink = `https://innercalm.netlify.app/post/${postId}`;
+        const postLink = `https://soulmind.vercel.app/post/${postId}`;
 
         const tempInput = document.createElement('input');
         tempInput.value = postLink;
