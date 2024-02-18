@@ -24,6 +24,8 @@ import {
 import { auth } from '@/apis/firebaseConfig';
 
 import { logout } from '@/apis/auth'
+import useCheckAuth from '@/hooks/useCheckAuth';
+import { toast } from 'react-toastify';
 
 const Nav = () => {
     const router = useRouter()
@@ -37,15 +39,21 @@ const Nav = () => {
     useEffect(()=>{
         setProfileURL(auth?.currentUser?.photoURL)
     },[auth?.currentUser?.photoURL])
-
     // let initialTheme = localStorage.getItem("theme");
+
+    const { isAuthenticated } = useCheckAuth();
+    if(!isAuthenticated){
+        // setTimeout(()=>{
+        router.push("/")
+        // }, 2000)
+    }
 
 
     useEffect(() => {
         let ITheme = localStorage.getItem("theme");
 
         if (!ITheme) {
-            alert("MEOW")
+            // alert("MEOW")
             ITheme = "light";
             localStorage.setItem("theme", ITheme);
             setinitialTheme(ITheme)
