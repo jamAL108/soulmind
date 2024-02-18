@@ -28,13 +28,13 @@ import useCheckAuth from '@/hooks/useCheckAuth';
 import { toast } from 'react-toastify';
 
 const Nav = () => {
+    var location = usePathname()
     const router = useRouter()
 
     const [initialTheme, setinitialTheme] = useState('light')
     const [userData , setUserData] = useState(null)
     const [theme, settheme] = useState('')
     const [isChecked, setisChecked] = useState(false)
-    const location = usePathname()
     const [profileURL , setProfileURL] = useState(auth?.currentUser?.photoURL)
     useEffect(()=>{
         setProfileURL(auth?.currentUser?.photoURL)
