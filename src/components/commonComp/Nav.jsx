@@ -120,13 +120,13 @@ const Nav = () => {
 
                 <ul style={{ marginBottom: "0px", paddingLeft: "0" }} className={theme + " navbar__list"}>
                     <li>
+                        <Link className={location === "/community" ? theme + " activeNav" : "#"} href="/community"> <FontAwesomeIcon className='navBarIcons' icon={faUsers} />Community</Link>
+                    </li>
+                    <li>
                         <Link className={location === "/appointment" ? theme + " activeNav" : "#"} href="/appointment"><FontAwesomeIcon className='navBarIcons' icon={faHome} />Appointment</Link>
                     </li>
                     <li>
                         <Link className={location === "/music" ? theme + " activeNav" : "#"} href="/music"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> Music</Link>
-                    </li>
-                    <li>
-                        <Link className={location === "/community" ? theme + " activeNav" : "#"} href="/community"> <FontAwesomeIcon className='navBarIcons' icon={faUsers} />Community</Link>
                     </li>
                     <li>
                         <Link className={location === "/chatbot" ? theme + " activeNav" : "#"} href="/chatbot"><FontAwesomeIcon className='navBarIcons' icon={faHandHoldingHeart} /> Soul-Friend</Link>
