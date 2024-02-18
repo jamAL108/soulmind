@@ -52,7 +52,7 @@ import {
 
 import Time from './time'
 
-const page = () => {
+const Page = () => {
   const [profileEMail, setProfileMail] = useState(auth?.currentUser?.email);
   const [userAppointment, setUserAppointment] = useState<any>({
     today: [],
@@ -343,4 +343,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
