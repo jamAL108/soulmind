@@ -76,6 +76,7 @@ const Nav = () => {
 
     const logoutFunction = () =>{
         logout()
+        localStorage.removeItem('soulmindUser')
         router.push('/')
     }
 
