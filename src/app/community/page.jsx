@@ -9,25 +9,48 @@ import { faClose, faHeart as faHeartSupported } from '@fortawesome/free-solid-sv
 import { faHeart, faPaperPlane as faShareNodes } from '@fortawesome/free-regular-svg-icons';
 import { FaWhatsapp, FaInstagram, FaTwitter, FaCopy } from "react-icons/fa";
 import { MdOutlineSort } from "react-icons/md";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { toast } from "react-toastify";
+import PuffLoader from "react-spinners/PuffLoader"
+import ClipLoader from "react-spinners/ClipLoader";
+
+const genAI = new GoogleGenerativeAI("AIzaSyBX16wrIG9mPvTXSc9iDA35v70phX7qgqg");
+
+async function checkValid(valueOfPrompt) {
+    // For text-only input, use the gemini-pro model
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+    let prompt = `give response as YES or NO, if the prompt to the text is related to mental health or not: '${valueOfPrompt}'`
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+    console.log(text);
+    return text.toLowerCase().includes("yes");
+}
+
 
 const Community = () => {
     const [supportedPostIds, setSupportedPostIds] = useState([]);
     const [isSortPopupOpen, setisSortPopupOpen] = useState(false)
     const router = useRouter()
 
-    const [theme , settheme] = useState('light')
+    const [theme, settheme] = useState('light')
 
-    useEffect(()=>{
-    // if (localStorage.getItem("theme") !== "light")
-    //     localStorage.setItem("theme", "dark")
+    const [isLoading, setIsLoading] = useState(true)
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    
+    useEffect(() => {
 
-    let themeVal = localStorage.getItem("theme")
-    settheme(themeVal)
+        let themeVal = localStorage.getItem("theme")
+        settheme(themeVal)
+    }, [])
 
-    const parsedData = JSON.parse(localStorage.getItem("supportedPostIds"))
-    setSupportedPostIds(parsedData)
-
-    },[])
+    useEffect(() => {
+        const parsedData = JSON.parse(localStorage.getItem("supportedPostIds"))
+        if (parsedData)
+            setSupportedPostIds(parsedData)
+    }, [])
 
     useEffect(() => {
         // Update document title when component mounts
@@ -50,11 +73,20 @@ const Community = () => {
 
     const [sortType, setSortType] = useState(1);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
+        const bool = await checkValid(story);
+        if (!bool) {
+            toast.info("Please enter something related to mental health♾️")
+            setIsSubmitting(false);
+            return;
+        }
+
         let x = JSON.stringify({ name, story });
         if (!story) {
             setSubErr(true)
+            setIsSubmitting(false);
             return;
         }
 
@@ -68,26 +100,27 @@ const Community = () => {
                 setName("")
                 setStory("")
                 handleCloseForm();
-                FetchPosts()
-
+                FetchPosts();
             } else {
 
                 setSubErr(true)
             }
-        }).then((data) => {
-
-
         }).catch((error) => {
             console.error('Error:', error);
             setSubErr(true)
 
-        });
+        }).finally(()=>{
+            setIsSubmitting(false);
+
+        })
+
+        ;
 
     };
 
 
     const isPostSupported = (postId) => {
-        return supportedPostIds?.includes(postId);
+        return supportedPostIds.includes(postId);
     };
 
     const supportPost = (postId) => {
@@ -150,6 +183,7 @@ const Community = () => {
     const handleCloseForm = () => {
         setName("")
         setStory("")
+        setIsSubmitting(false)
         setShowForm(false);
         setSubErr(false)
     };
@@ -162,7 +196,8 @@ const Community = () => {
 
     const [allposts, setAllPosts] = useState([])
 
-    const FetchPosts = async (rev=false) => {
+    const FetchPosts = async (rev = false) => {
+        setIsLoading(true);
         try {
             const resFromBack = await fetch('https://server-innercalm.vercel.app/api/allPosts', {
                 method: "GET",
@@ -171,13 +206,14 @@ const Community = () => {
                     "Content-Type": "application/json"
                 }
             })
-
+            
             const data = await resFromBack.json()
-            setAllPosts(()=>{
-                if(rev)
+            setAllPosts(() => {
+                if (rev)
                     return data.reverse();
                 return data;
             })
+            setIsLoading(false);
 
 
             if (resFromBack.status !== 200 || !data) {
@@ -253,7 +289,7 @@ const Community = () => {
         document.body.removeChild(tempInput);
 
         // You can also provide user feedback that the link has been copied, e.g., a toast message.
-        alert('Post link copied to clipboard!');
+        toast.success('Post link copied to clipboard!');
     };
     return (
         <>
@@ -261,52 +297,61 @@ const Community = () => {
             <div className="CMT">
                 <div className={theme + " " + cmtpg}>
                     <header>We believe that by sharing our experiences, we can help others feel less alone and inspire them to seek the help they need. Join us in creating a supportive and inclusive space where everyone{"'"}s voice is heard.</header>
-                    <h1 className={theme + " head_st"} style={{position : "relative"}}>
+                    {
+                        isLoading ? 
+                        <>
+                        <div style={{display : "flex", justifyContent :"center", width :"100%"}}>
+                            <PuffLoader color={theme=="dark" ? "#ffffff" : "#000"} />
+                        </div>
+                        </> :
+
+                        <>
+                        <h1 className={theme + " head_st"} style={{ position: "relative" }}>
                         Stories of People
-                        <div onClick={()=> setisSortPopupOpen(prev=>!prev)} className={theme +" sortBydropDownBtn"}>
-                            <div style={{display :"flex", justifyContent : "",fontSize : "22px"}}>
-                                <button><MdOutlineSort /></button> 
+                        <div onClick={() => setisSortPopupOpen(prev => !prev)} className={theme + " sortBydropDownBtn"}>
+                            <div style={{ display: "flex", justifyContent: "", fontSize: "22px" }}>
+                                <button><MdOutlineSort /></button>
                             </div>
                         </div>
                         {
-                                isSortPopupOpen && (
-                                    <>
-                                        <div className={theme + " sortbyDropDown"}>
-                                            <p> Sort by : </p>
-                                            <button
-                                                onClick={()=>{
-                                                    FetchPosts();
-                                                    setSortType(1);
-                                                }}
-                                                 style={{display : sortType==1 && "none"}}>
-                                                Newest 
-                                            </button>
-                                            <button
-                                                onClick={()=>{
-                                                    FetchPosts(true);
-                                                    setAllPosts((x)=>{
-                                                        x.reverse();
-                                                        return x;
-                                                    })
-                                                    setSortType(2);
-                                                }}
-                                                style={{display : sortType==2 && "none"}}>
-                                                Oldest 
-                                            </button>
-                                            <button
-                                                onClick={()=>{
-                                                    setSortType(1);
-                                                }}
-                                                style={{display : sortType==3 && "none"}}>
-                                                Supports
-                                            </button>
-                                        </div>
-                                    </>
-                                )
-                            }
+                            isSortPopupOpen && (
+                                <>
+                                    <div className={theme + " sortbyDropDown"}>
+                                        <p> Sort by : </p>
+                                        <button
+                                            onClick={() => {
+                                                FetchPosts();
+                                                setSortType(1);
+                                            }}
+                                            style={{ display: sortType == 1 && "none" }}>
+                                            Newest
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                FetchPosts(true);
+                                                setAllPosts((x) => {
+                                                    x.reverse();
+                                                    return x;
+                                                })
+                                                setSortType(2);
+                                            }}
+                                            style={{ display: sortType == 2 && "none" }}>
+                                            Oldest
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setSortType(1);
+                                            }}
+                                            style={{ display: sortType == 3 && "none" }}>
+                                            Supports
+                                        </button>
+                                    </div>
+                                </>
+                            )
+                        }
                     </h1>
 
-                    
+
 
                     <div className="allposts">
                         {allposts.map((val) => {
@@ -348,7 +393,7 @@ const Community = () => {
                     </div>
                     {showSharePopup && (
                         <div className="share-popup">
-                            <div className={theme+" share-popup-content"}>
+                            <div className={theme + " share-popup-content"}>
                                 <span className="close" onClick={handleCloseSharePopup}>
                                     <FontAwesomeIcon icon={faClose} />
                                 </span>
@@ -400,7 +445,20 @@ const Community = () => {
                                 />
                                 {suberr ? <span className="errormessage"> *Error Posting, Please try again.</span> : <></>}
                                 <div className="form-buttons">
-                                    <button type="submit" className="submitbtn" >Submit</button>
+                                    <button type="submit" className="submitbtn" >
+                                        {
+                                            isSubmitting ?
+                                            <>
+                                            <div style={{display : "flex", justifyContent :"center", width :"100%"}}>
+                                                <ClipLoader color={theme=="dark" ? "#ffffff" : "#000"} />
+                                            </div>
+                                            </>
+                                            :
+                                            <>
+                                                Submit
+                                            </>
+                                        }
+                                    </button>
                                     <button className="closebtn" type="button" onClick={handleCloseForm}>
                                         Close
                                     </button>
@@ -408,6 +466,8 @@ const Community = () => {
                             </form>
                         </div>
                     )}
+                        </>
+                    }
                 </div>
             </div>
         </>

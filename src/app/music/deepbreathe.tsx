@@ -47,7 +47,9 @@ export default function DeepBreathe({ setopen }: any) {
           break;
         case "exhale":
           // End of the breathing cycle
-          setopen(false);
+        //   setopen(false);
+            setSeconds(6)
+            setStage("inhale")
           break;
         default:
           break;
@@ -82,12 +84,12 @@ export default function DeepBreathe({ setopen }: any) {
 
   return (
     <div className="z-[1000] w-[100vw] h-[100vh] flex justify-center items-center absolute bg-[rgba(0,0,0,0.5)]">
-      <div className="w-[500px] max-w-[90vw] rounded-[20px] h-[80vh] flex items-center flex-col text-white border border-white" style={{ backdropFilter: "blur(10px) brightness(70%)" }}>
+      <div className="w-[500px] max-w-[90vw] rounded-[20px] h-[70vh] flex items-center flex-col text-white border border-white" style={{ backdropFilter: "blur(10px) brightness(70%)" }}>
         <div className="w-full p-[15px] flex justify-between items-center text-white">
           <h1 className="text-[1.3rem] font-[550]">Deep Breathe</h1>
           <X color="white" className="!cursor-pointer" size={35} onClick={(e) => { setopen(false); }} />
         </div>
-        <div className="text-white text-lg">
+        <div className="text-white text-lg flex flex-col items-center">
           {!started && 
             <div className="flex items-center h-full">
                 <button onClick={handleStartClick}>Start</button>
@@ -95,14 +97,14 @@ export default function DeepBreathe({ setopen }: any) {
           }
           {started && (
             <>
-              <p>{displayStage()}</p>
+              <p>{formatTime(displaySeconds)}</p>
               <div className="breatheLoader">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
-              <p>{formatTime(displaySeconds)}</p>
+              <p className="font-bold text-lg">"{displayStage()}"</p>
             </>
           )}
         </div>

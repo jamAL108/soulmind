@@ -2,11 +2,10 @@
   scroll-behavior: smooth;
   transition: 0.3s all ease-in-out;
   min-height: 100vh;
-
 }
 
 .dark.linearbgcmitypg {
-  background: linear-gradient(#282828, #363636);
+  background: linear-gradient(#282828 90%, #38393b);
 }
 
 .linearbgcmitypg {
@@ -529,7 +528,7 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(#fff, #f2b5bb, #5faae3, #939bcb);
-  padding-top: 30px;
+  padding-top: 80px;
 }
 
 .dark.postPage {
