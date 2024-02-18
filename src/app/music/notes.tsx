@@ -46,7 +46,7 @@ const Notes: React.FC<any> = (props) => {
   return (
     <div className="z-[1000] w-[100vw] h-[100vh] flex justify-center items-center absolute bg-[rgba(0,0,0,0.5)]">
       <div
-        className="w-[500px] rounded-[20px] h-[80vh] flex items-center flex-col text-white border border-white"
+        className="w-[500px] max-w-[90vw] rounded-[20px] h-[80vh] flex items-center flex-col text-white border border-white"
         style={{ backdropFilter: " blur(10px) brightness(70%)" }}
       >
         <div className="w-full p-[15px] flex justify-between items-center text-white">
