@@ -211,7 +211,7 @@ const Page = () => {
                     </AccordionItem>
                   } else {
                     return (
-                      <AccordionItem value="item-1" className='text-white rounded-[8px]  !border-[0px] !border-none' >
+                      <AccordionItem key={idx} value="item-1" className='text-white rounded-[8px]  !border-[0px] !border-none' >
                         <AccordionTrigger className='bg-[] hover:bg-[] text-white rounded-[8px] !border-[] !border-[0px] !border-none'>
                           <div className=' w-full flex flex-col text-left gap-2 pl-[10px] py-[5px]'>
                             <h1 className='text-[1.3rem] font-[600]'>{item.name}</h1>
