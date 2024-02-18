@@ -7,8 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-
-// import '../styles/appoint/css'
 import '@/app/styles/appoint.css'
 
 
@@ -154,7 +152,7 @@ const page = () => {
   return (
     <div className='w-[100%} h-[100%] text-white'>
       <Nav />
-      <div className='mt-[6rem] w-full h-auto flex  justify-center gap-1'>
+      <div className='mt-[100px] w-full h-auto flex  justify-center gap-1'>
 
         <div className='w-[50%] h-auto pl-[60px] flex flex-col gap-[50px] pr-[10px] '>
           <h1 className='text-[1.8rem] font-[560] w-[80%] text-center'>Your Sheduled Session With Expert Therapist</h1>

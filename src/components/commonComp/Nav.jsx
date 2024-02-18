@@ -144,7 +144,7 @@ const Nav = () => {
                 </ul>
 
                 {
-                    location !== "/my-space" || location !== "/appointment" ?
+                    location !== "/my-space" && location !== "/appointment" ?
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <div className='profile-user'>

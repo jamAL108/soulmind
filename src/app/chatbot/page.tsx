@@ -8,18 +8,23 @@ import { auth } from "@/apis/firebaseConfig";
 
 const genAI = new GoogleGenerativeAI("AIzaSyBX16wrIG9mPvTXSc9iDA35v70phX7qgqg");
 
-async function runPrompt(valueOfPrompt : string) {
+async function runPrompt(valueOfPrompt: string, previousChats: string[]) {
   // For text-only input, use the gemini-pro model
-  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-  let prompt = `(Pretend you are Soul-Friend - A mental health chatbot as a friend, don't mention your name until asked, give short chat response), and give response to the text : '${valueOfPrompt}' , and don't answer for any questions which are not related to mental health conditions tell them strictly that you are a not trained for these questions` 
+  let prompt =
+    `(Pretend you are Soul-Friend - A mental health chatbot as a friend, don't mention your name until asked, give short chat response), and give response to the text : '${valueOfPrompt}' , and don't answer for any questions which are not related to mental health conditions tell them strictly that you are a not trained for these questions. 
+    These are the context, please condsider them wisely while responding\n` +
+    previousChats.join("\n");
 
+  console.log(prompt,"::::propmt")
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
   console.log(text);
   return text;
 }
+
 
 function ChatBot() {
   useEffect(() => {
@@ -46,30 +51,30 @@ function ChatBot() {
   const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef<any>(null);
 
-  const chat = async (e : any, message : any) => {
+  const chat = async (e: any, message: any) => {
     e.preventDefault();
-
+  
     if (!message) return;
-
+  
     setIsTyping(true);
-
+  
     let msgs = [...chats];
     msgs.push({ role: "user", content: message });
     setChats(msgs);
-
+  
     setMessage("");
-
+  
     try {
-      const response = await runPrompt(message);
+      const response = await runPrompt(message, msgs.filter((x)=>x.role==="user").map((chat: any) => chat.content));
       msgs.push({ role: "assistant", content: response });
       setChats(msgs);
     } catch (error) {
       console.error("Error generating response:", error);
     }
-
+  
     setIsTyping(false);
   };
-
+  
   useEffect(() => {
     // Scroll to the bottom of the chat container
     if (chatContainerRef.current) {
