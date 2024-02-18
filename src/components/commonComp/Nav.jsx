@@ -52,7 +52,7 @@ const Nav = () => {
         }
 
         // const location = router.pathname;
-        settheme(location === "/music" ? "dark" : ITheme)
+        settheme(location === "/my-space" || location === "/appointment" ? "dark" : ITheme)
 
         // setProfileURL(auth.currentUser.photoURL)
         // setUserData(auth.currentUser)
@@ -126,7 +126,7 @@ const Nav = () => {
                         <Link className={location === "/appointment" ? theme + " activeNav" : "#"} href="/appointment"><FontAwesomeIcon className='navBarIcons' icon={faHome} />Appointment</Link>
                     </li>
                     <li>
-                        <Link className={location === "/music" ? theme + " activeNav" : "#"} href="/music"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> Music</Link>
+                        <Link className={location === "/my-space" ? theme + " activeNav" : "#"} href="/my-space"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> My Space</Link>
                     </li>
                     <li>
                         <Link className={location === "/chatbot" ? theme + " activeNav" : "#"} href="/chatbot"><FontAwesomeIcon className='navBarIcons' icon={faHandHoldingHeart} /> Soul-Friend</Link>
@@ -144,7 +144,7 @@ const Nav = () => {
                 </ul>
 
                 {
-                    location !== "/music" ?
+                    location !== "/my-space" || location !== "/appointment" ?
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <div className='profile-user'>
@@ -183,7 +183,7 @@ const Nav = () => {
                             <Link className={location === "community" ? theme + " activeNav" : "#"} href="/community"> <FontAwesomeIcon className='navBarIcons' icon={faUsers} />Community</Link>
                         </li>
                         <li>
-                            <Link className={location === "music" ? theme + " activeNav" : "#"} href="/music"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> Music</Link>
+                            <Link className={location === "music" ? theme + " activeNav" : "#"} href="/my-space"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> Music</Link>
                         </li>
                         <li>
                             <Link className={location === "education" ? theme + " activeNav" : "#"} href="/education"><FontAwesomeIcon className='navBarIcons' icon={faBook} /> Education</Link>
