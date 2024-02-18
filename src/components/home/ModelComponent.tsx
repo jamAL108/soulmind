@@ -8,7 +8,7 @@ type ModalProps = {
 
 const ModalComponent: React.FC<ModalProps> = ({ title, handleLogin }: ModalProps) => {
     return (
-        <div className='w-[100%] h-[100%] flex items-center flex-col gap-5'>
+        <div className='w-[100%] h-[100%] flex items-center flex-col gap-5 bg-white'>
             <div className='w-[100%] py-[20px] flex justify-center items-center'>
                 <Image src="/images/logo.png" alt="dsdvfeb" width={220} height={200}  />
             </div>

@@ -12,7 +12,7 @@ async function runPrompt(valueOfPrompt : string) {
   // For text-only input, use the gemini-pro model
   const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-  let prompt = `(Pretend you are Soul-Friend - A mental health chatbot as a friend, don't mention your name until asked, give short chat response), and give response to the text : '${valueOfPrompt}'` 
+  let prompt = `(Pretend you are Soul-Friend - A mental health chatbot as a friend, don't mention your name until asked, give short chat response), and give response to the text : '${valueOfPrompt}' , and don't answer for any questions which are not related to mental health conditions tell them strictly that you are a not trained for these questions` 
 
   const result = await model.generateContent(prompt);
   const response = await result.response;

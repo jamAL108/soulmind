@@ -120,7 +120,7 @@ const Nav = () => {
 
                 <ul style={{ marginBottom: "0px", paddingLeft: "0" }} className={theme + " navbar__list"}>
                     <li>
-                        <Link className={location === "/" ? theme + " activeNav" : "#"} href="/"><FontAwesomeIcon className='navBarIcons' icon={faHome} /> Home</Link>
+                        <Link className={location === "/appointment" ? theme + " activeNav" : "#"} href="/appointment"><FontAwesomeIcon className='navBarIcons' icon={faHome} />Appointment</Link>
                     </li>
                     <li>
                         <Link className={location === "/music" ? theme + " activeNav" : "#"} href="/music"><FontAwesomeIcon className='navBarIcons' icon={faHeadphones} /> Music</Link>
@@ -177,7 +177,7 @@ const Nav = () => {
                     <div className={theme + ' mobile_Navs ' + (open ? "opened" : "#")}>
 
                         <li>
-                            <Link className={location === "/" ? theme + " activeNav" : "#"} href="/"><FontAwesomeIcon className='navBarIcons' icon={faHome} /> Home</Link>
+                            <Link className={location === "/appointment" ? theme + " activeNav" : "#"} href="/appointment"><FontAwesomeIcon className='navBarIcons' icon={faHome} /> Appointment</Link>
                         </li>
                         <li>
                             <Link className={location === "community" ? theme + " activeNav" : "#"} href="/community"> <FontAwesomeIcon className='navBarIcons' icon={faUsers} />Community</Link>
