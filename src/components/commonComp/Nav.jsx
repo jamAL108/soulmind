@@ -39,15 +39,14 @@ const Nav = () => {
     useEffect(()=>{
         setProfileURL(auth?.currentUser?.photoURL)
     },[auth?.currentUser?.photoURL])
-    // let initialTheme = localStorage.getItem("theme");
+    // let initialTheme = localStorage.getItem("theme")
 
-    const { isAuthenticated } = useCheckAuth();
-    if(!isAuthenticated){
-        // setTimeout(()=>{
-        router.push("/")
-        // }, 2000)
-    }
-
+    useEffect(()=>{
+      const user = localStorage.getItem("soulmindUser")
+      if(user===null){
+        router.push('/')
+      }
+    },[])
 
     useEffect(() => {
         let ITheme = localStorage.getItem("theme");
